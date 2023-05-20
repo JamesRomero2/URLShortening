@@ -1,3 +1,5 @@
+import Card from "@/components/Card"
+import LinkForm from "@/components/LinkForm"
 import Head from "next/head"
 import Image from "next/image"
 
@@ -41,28 +43,67 @@ export default function Home() {
           </div>
         </section>
         <section className="mt-16 bg-user-neutral-gray flex flex-col">
-            <div className="overflow-hidden rounded-xl bg-cover bg-no-repeat mx-auto bg-primary-dark-violet w-[87%] -mt-[5.5rem] mb-8" style={{
-              backgroundImage: "url('/bg-shorten-mobile.svg')",
-              backgroundSize: "70% 80%",
-              backgroundPosition: "right top",
-              }}>
-              <div className="p-7 flex flex-col items-center gap-5">
-                <input type="url" name="url" id="" placeholder="Shorten a link here..." className="w-full py-3 px-4 rounded-lg"/>
-                <button className="mx-1 bg-primary-cyan font-bold text-white w-full p-3 rounded-lg">Shorten It!</button>
-              </div>
-            </div>
+            <LinkForm/>
             <div className="mx-7 text-center my-10">
               <h2 className="text-3xl font-bold text-primary-dark-violet mb-7">Advanced Statistics</h2>
-              <p className="text-neutral-gray-violet">Track how your links are performing across the web with our advanced statistics dashboard.</p>
+              <p className="text-neutral-gray-violet leading-8">Track how your links are performing across the web with our advanced statistics dashboard.</p>
             </div>
-            <div className="card">
-              
+            <div className="cards mx-7">
+              <Card/>
             </div>
-
+            <div className="bg-cover bg-no-repeat mx-auto bg-primary-dark-violet w-full h-72 flex flex-col items-center justify-center gap-5" style={{
+              backgroundImage: "url('/bg-boost-mobile.svg')",
+              backgroundSize: "100% 100%",
+              backgroundPosition: "right top",
+              }}>
+              <h2 className="text-center font-bold text-3xl text-white">Boost your links today</h2>
+              <button className="text-white font-bold bg-primary-cyan px-12 py-4 rounded-full">Get Started</button>
+            </div>
         </section>
       </main>
-      <footer>
-
+      <footer className="bg-neutral-dark-violet flex flex-col gap-12 p-10 text-center text-white">
+        <div className="mx-auto pt-10">
+          <Image src={'/logo.svg'} width={120} height={50} alt="Website's logo named Shortly" className="invert-[100%] sepia-[0%] saturate-[1%] hue-rotate-[0deg] brightness-[0%] contrast-[100%]" />
+        </div>
+        <div className="flex flex-col items-center justify-center gap-5">
+          <h3 className="mx-1 font-bold">Features</h3>
+          <ul className="flex flex-col gap-3 text-neutral-gray-violet">
+            <li>Link Shortening</li>
+            <li>Branded Links</li>
+            <li>Analytics</li>
+          </ul>
+        </div>
+        <div className="flex flex-col items-center justify-center gap-5">
+        <h3 className="mx-1 font-bold">Resources</h3>
+          <ul className="flex flex-col gap-3 text-neutral-gray-violet">
+            <li>Blog</li>
+            <li>Developers</li>
+            <li>Support</li>
+          </ul>
+        </div>
+        <div className="flex flex-col items-center justify-center gap-5">
+        <h3 className="mx-1 font-bold">Company</h3>
+          <ul className="flex flex-col gap-3 text-neutral-gray-violet">
+            <li>About</li>
+            <li>Our Team</li>
+            <li>Careers</li>
+            <li>Contact</li>
+          </ul>
+        </div>
+        <ul className="flex flex-row gap-8 w-full justify-center items-center mb-10">
+          <li>
+              <Image alt="Social Media Links" src={'/icon-facebook.svg'} width={30} height={30}/>
+          </li>
+          <li>
+              <Image alt="Social Media Links" src={'/icon-twitter.svg'} width={30} height={30}/>
+          </li>
+          <li>
+              <Image alt="Social Media Links" src={'/icon-pinterest.svg'} width={30} height={30}/>
+          </li>
+          <li>
+              <Image alt="Social Media Links" src={'/icon-instagram.svg'} width={30} height={30}/>
+          </li>
+        </ul>
       </footer>
     </>
   )

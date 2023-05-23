@@ -1,9 +1,10 @@
-import Card from "@/components/Card"
-import LinkForm from "@/components/LinkForm"
-import Head from "next/head"
-import Image from "next/image"
+import Card from "@/components/Card";
+import LinkForm from "@/components/LinkForm";
+import Head from "next/head";
+import Image from "next/image";
 
 export default function Home() {
+
   return (
     <>
       <Head>
@@ -34,7 +35,7 @@ export default function Home() {
       <main className="overflow-x-hidden relative">
         <section className="hero mb-40 h-fit">
           <div className="h-96 w-[550px]">
-            <Image src={'/illustration-working.svg'} height={0} width={0} alt="Hero Section Illustration" className="h-auto w-[550px] ml-7"/>
+            <Image src={'/illustration-working.svg'} height={0} width={0} alt="Hero Section Illustration" className="h-auto w-[550px] ml-7" priority/>
           </div>
           <div className="mx-7 flex flex-col items-center text-center gap-5">
             <h1 className="font-bold text-[2.7rem] text-primary-dark-violet leading-[1.2em]">More than just shorter links</h1>

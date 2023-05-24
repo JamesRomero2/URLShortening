@@ -2,6 +2,7 @@ import { ILink } from "@/types";
 import { useState } from "react";
 
 const LinkForm = () => {
+  const [copy, setCopy] = useState<boolean>(false);
   const [links, setLinks] = useState<ILink[]>([]);
   const API_BASE = 'https://api.shrtco.de/v2/shorten?url=';
   const [link, setLink] = useState<string>('');
@@ -18,7 +19,7 @@ const LinkForm = () => {
       const data = await res.json();
       if (data.ok) {
         addData(link, data.result.short_link);
-        
+        setLink('');
       } else {
         console.log(data.error);
       }
@@ -45,7 +46,11 @@ const LinkForm = () => {
           <div className="mx-7 bg-white my-3 rounded-lg flex flex-col gap-3" key={index}>
              <h3 className="border-b-2 p-4 border-user-neutral-gray">{onelink.FullLink}</h3>
              <p className="py-1 px-4 text-primary-cyan">{onelink.ShortLink}</p> 
-             <button onClick={() => {navigator.clipboard.writeText(onelink.ShortLink)}} className=" bg-primary-cyan mx-4 mb-5 p-2 rounded-lg text-white">Copy</button>
+             <button onClick={() => {
+                navigator.clipboard.writeText(onelink.ShortLink);
+                
+                }
+              } className=" bg-primary-cyan mx-4 mb-5 p-2 rounded-lg text-white">{copy ? 'Copied!' : 'Copy'}</button>
           </div>
           )
         })

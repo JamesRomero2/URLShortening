@@ -30,28 +30,28 @@ const Card = () => {
 ];
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center md:flex-row md:mx-32 md:gap-10 md:items-center md:my-10 my-20">
       {
         names.map(name => 
           {
            if (name.id === 2)
            return <div key={name.id} className="relative">
-            <div className="border-l-[10px] h-[500px] absolute left-[50%] -ml-[5px] top-0 border-primary-cyan -mt-[48px]"></div>
-              <div className="bg-white flex flex-col items-center my-12 relative rounded-lg text-center gap-y-3 px-11 pb-10">
-                <div className="p-5 rounded-full bg-primary-dark-violet -mt-11">
+            <div className="border-l-[8px] h-[500px] absolute left-[50%] -ml-[5px] top-0 border-primary-cyan -mt-[48px] md:rotate-90 md:-mt-[96px]"></div>
+              <div className="bg-white flex flex-col items-center my-12 relative rounded-lg text-center gap-y-3 px-11 pb-10 md:px-5 md:text-left md:items-start md:w-80 md:pr-10">
+                <div className="p-5 rounded-full bg-primary-dark-violet -mt-11 md:self-start">
                   <Image src={name.cardImage} alt="Card images" width={50} height={50}/>
                 </div>
-                  <h2 className="text-primary-dark-violet font-bold text-2xl my-3">{name.cardTitle}</h2>
-                  <p className="text-neutral-gray-violet text-sm leading-6">{name.cardText}</p>
+                  <h2 className="text-primary-dark-violet font-bold text-2xl my-3 md:text-xl md:-mb-1">{name.cardTitle}</h2>
+                  <p className="text-neutral-gray-violet text-sm leading-6 md:text-sm md:leading-6">{name.cardText}</p>
               </div>
             </div>
             return <div key={name.id}>
-              <div className="bg-white flex flex-col items-center my-12 relative rounded-lg text-center gap-y-3 px-11 pb-10">
-                <div className="p-5 rounded-full bg-primary-dark-violet -mt-11">
+              <div className={"bg-white flex flex-col items-center my-12 relative rounded-lg text-center gap-y-3 px-11 pb-10 md:px-5 md:text-left md:items-start md:w-80 md:pr-10 z-10 " + (name.id === 1 ? "-mt-10" : "-mb-10")}>
+                <div className="p-5 rounded-full bg-primary-dark-violet -mt-11 md:self-start">
                   <Image src={name.cardImage} alt="Card images" width={50} height={50}/>
                 </div>
-                  <h2 className="text-primary-dark-violet font-bold text-2xl my-3">{name.cardTitle}</h2>
-                  <p className="text-neutral-gray-violet text-sm leading-6">{name.cardText}</p>
+                  <h2 className="text-primary-dark-violet font-bold text-2xl my-3 md:text-xl md:-mb-1">{name.cardTitle}</h2>
+                  <p className="text-neutral-gray-violet text-sm leading-6 md:text-sm md:leading-6">{name.cardText}</p>
               </div>
             </div>
           }

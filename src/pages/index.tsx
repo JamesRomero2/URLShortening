@@ -8,6 +8,8 @@ export default function Home() {
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
   const [windowWidth, setWindowWidth] = useState<number | undefined>();
   const [imageURL, setImageURL] = useState<string>('');
+  const [imageWidth, setImageWidth] = useState<number>(0);
+  
 
   useEffect(() => {
     const handleWindowResize = () => {
@@ -16,8 +18,10 @@ export default function Home() {
 
     if (windowWidth! < 768) {
       setImageURL('/bg-boost-mobile.svg')
+      setImageWidth(120);
     } else {
       setImageURL('/bg-boost-desktop.svg')
+      setImageWidth(130);
     }
     window.addEventListener('resize', handleWindowResize);
 
@@ -104,28 +108,28 @@ export default function Home() {
             </div>
         </section>
       </main>
-      <footer className="bg-neutral-dark-violet flex flex-col gap-12 p-10 text-center text-white">
-        <div className="mx-auto pt-10">
-          <Image src={'/logo.svg'} width={120} height={50} alt="Website's logo named Shortly" className="invert-[100%] sepia-[0%] saturate-[1%] hue-rotate-[0deg] brightness-[0%] contrast-[100%]" />
+      <footer className="bg-neutral-dark-violet flex flex-col gap-12 p-10 text-center text-white md:flex-row md:items-start md:text-left md:justify-between md:px-40 md:text-sm">
+        <div className="mx-auto pt-10 md:pt-0 md:flex-0 md:mx-0 md:mr-32">
+          <Image src={'/logo.svg'} width={imageWidth} height={10} alt="Website's logo named Shortly" className="invert-[100%] sepia-[0%] saturate-[1%] hue-rotate-[0deg] brightness-[0%] contrast-[100%]" />
         </div>
-        <div className="flex flex-col items-center justify-center gap-5">
-          <h3 className="mx-1 font-bold">Features</h3>
+        <div className="flex flex-col items-center justify-center gap-5 md:items-start">
+          <h3 className="font-bold">Features</h3>
           <ul className="flex flex-col gap-3 text-neutral-gray-violet">
             <li>Link Shortening</li>
             <li>Branded Links</li>
             <li>Analytics</li>
           </ul>
         </div>
-        <div className="flex flex-col items-center justify-center gap-5">
-        <h3 className="mx-1 font-bold">Resources</h3>
+        <div className="flex flex-col items-center justify-center gap-5 md:items-start">
+        <h3 className="font-bold">Resources</h3>
           <ul className="flex flex-col gap-3 text-neutral-gray-violet">
             <li>Blog</li>
             <li>Developers</li>
             <li>Support</li>
           </ul>
         </div>
-        <div className="flex flex-col items-center justify-center gap-5">
-        <h3 className="mx-1 font-bold">Company</h3>
+        <div className="flex flex-col items-center justify-center gap-5 md:items-start">
+        <h3 className="font-bold">Company</h3>
           <ul className="flex flex-col gap-3 text-neutral-gray-violet">
             <li>About</li>
             <li>Our Team</li>
@@ -133,18 +137,18 @@ export default function Home() {
             <li>Contact</li>
           </ul>
         </div>
-        <ul className="flex flex-row gap-8 w-full justify-center items-center mb-10">
+        <ul className="flex flex-row gap-8 w-full justify-center items-center mb-10 md:justify-start md:w-fit">
           <li>
-              <Image alt="Facebook Link" src={'/icon-facebook.svg'} width={30} height={30}/>
+              <Image alt="Facebook Link" src={'/icon-facebook.svg'} width={100 - imageWidth} height={100 - imageWidth}/>
           </li>
           <li>
-              <Image alt="Twitter Links" src={'/icon-twitter.svg'} width={30} height={30}/>
+              <Image alt="Twitter Links" src={'/icon-twitter.svg'} width={100 - imageWidth} height={100 - imageWidth}/>
           </li>
           <li>
-              <Image alt="Pinterest Links" src={'/icon-pinterest.svg'} width={30} height={30}/>
+              <Image alt="Pinterest Links" src={'/icon-pinterest.svg'} width={100 - imageWidth} height={100 - imageWidth}/>
           </li>
           <li>
-              <Image alt="Instagram Links" src={'/icon-instagram.svg'} width={30} height={30}/>
+              <Image alt="Instagram Links" src={'/icon-instagram.svg'} width={100 - imageWidth} height={100 - imageWidth}/>
           </li>
         </ul>
       </footer>
